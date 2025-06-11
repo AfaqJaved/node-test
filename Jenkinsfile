@@ -1,10 +1,10 @@
 pipeline {
   agent any
 
-//   environment {
-//     DOCKER_IMAGE = 'yourdockerhubusername/nestjs-app'
-//     DOCKER_TAG = 'latest'
-//   }
+  environment {
+    DOCKER_IMAGE = '10005/nestjs-test'
+    DOCKER_TAG = 'latest'
+  }
 
   tools {
     nodejs 'nodejs' // Adjust this to match your Jenkins Node.js tool name
@@ -55,16 +55,16 @@ pipeline {
       }
     }
 
-    // stage('Docker Build & Push') {
-    //   steps {
-    //     script {
-    //       docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-creds') {
-    //         def image = docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
-    //         image.push()
-    //       }
-    //     }
-    //   }
-    // }
+    stage('Docker Build & Push') {
+      steps {
+        script {
+          docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-creds') {
+            def image = docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
+            image.push()
+          }
+        }
+      }
+    }
   }
 
   post {
