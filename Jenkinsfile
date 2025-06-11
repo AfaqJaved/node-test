@@ -68,7 +68,7 @@ pipeline {
 
     stage('Notify Portainer Using Webhook') {
       steps {
-        sh 'curl --fail -X POST https://portainer.afaqjaved.com/api/stacks/webhooks/90df1076-765c-4287-bcce-d61692aabfe8'
+        sh 'curl --fail -X POST https://portainer.afaqjaved.com/api/stacks/webhooks/2e935555-d61b-4855-afcb-44c05a193417'
       }
     }
   }
