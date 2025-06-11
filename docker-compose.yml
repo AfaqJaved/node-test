@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nestjs-app:
+    image: 10005/nestjs-test:latest
+    restart: always
+    netwroks:
+      - nginx
+
+networks:
+  nginx:
+    external: true
