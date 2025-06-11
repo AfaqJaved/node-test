@@ -16,7 +16,9 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('My name is khan 10005');
+      expect(appController.getHello()).toBe(
+        'This is for testing update poll system',
+      );
     });
   });
 });
